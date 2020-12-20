@@ -1,10 +1,11 @@
+// SPDX-License-Identifier: MIT
+
 pragma solidity ^0.7.0;
-import "./ERC20.sol";
+
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 contract Bike is ERC20 {
-    string public constant name = "Bike";
-    string public constant symbol = "Bike-present";
-    uint8 public constant decimals = 18;
-
-    address public minter;
+  constructor(uint256 initialBalance) ERC20("Bike", "BikeSymbol") {
+    _mint(msg.sender, initialBalance);
+  }
 }
